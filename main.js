@@ -7,7 +7,7 @@ function main() {
   CONTEXT = CANVAS.getContext("2d");
   CANVAS.width = window.innerWidth;
   CANVAS.height = window.innerHeight;
-  
+
   let promise = navigator.mediaDevices.getUserMedia({video: true});
   promise.then(function(stream) {
     alert('VİDEO')
@@ -21,4 +21,10 @@ function main() {
   }).catch((err)=> {
     alert("Camera error", err);
   })
+}
+
+function updateCanvas(){
+  CONTEXT.drawImage(VIDEO, 0, 0, CANVAS.width, CANVAS.height);
+  window.requestAnimationFrame(updateCanvas);
+  //setTimeout(updateCanvas, 1000/30);
 }
