@@ -15,7 +15,7 @@ function main() {
     VIDEO.srcObject = stream;
     VIDEO.play();
 
-    VIDEO.onloadeddata = () => {
+    VIDEO.onloadeddata = () => { 
       updateCanvas();
     }
   }).catch((err)=> {
